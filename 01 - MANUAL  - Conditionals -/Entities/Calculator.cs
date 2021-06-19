@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Text;
 namespace Entities {
     class Calculator {
-        public int Number { get; set; }
-        public Calculator(int number) {
-            Number = number;
+        public int NumberX { get; set; }
+        public int NumberY { get; set; }
+        public Calculator(int numberX, int numberY) {
+            NumberX = numberX;
+            NumberY = numberY;
         }
         public bool Verif() {
-            if(Number % 2 == 0) {
+            if(NumberX % NumberY == 0 || NumberY % NumberX == 0) {
                 return true;
             }
             else {
@@ -17,10 +19,10 @@ namespace Entities {
         }
         public override string ToString() {
             if (Verif() == true) {
-                return "Par";
+                return "É Multiplo";
             }
             else {
-                return "Impar";
+                return "Não é Multiplo";
             }
         }
 
