@@ -3,22 +3,29 @@ using System.Collections.Generic;
 using System.Text;
 namespace Entities {
     class Calculator {
-        public int HourInitial { get; set; }
-        public int HourFinal { get; set; }
-        public Calculator(int hourInitial, int hourFinal) {
-            HourInitial = hourInitial;
-            HourFinal = hourFinal;
+        public double Coordinate { get; set; }
+        public Calculator(double coordinate) {
+            Coordinate = coordinate;
         }
-        public int Calculo() {
-            if (HourInitial < HourFinal) {
-                return HourFinal - HourInitial;
+        public string Calculo() {
+            if (Coordinate >= 0 && Coordinate < 25 ) {
+                return "Intervalo (0,25)";
+            }
+            else if (Coordinate >= 25 && Coordinate < 50) {
+                return "Intervalo (25,50)";
+            }
+            else if (Coordinate >= 50 && Coordinate < 75) {
+                return "Intervalo (50,75)";
+            }
+            else if (Coordinate >= 75 && Coordinate < 100) {
+                return "Intervalo (75,100)";
             }
             else{
-                return 24 - HourInitial + HourFinal;
+                return "Fora de intervalo";
             }
         }
         public override string ToString() {
-            return "Duração total do jogo: " + Calculo();
+            return "Intervalo do número: " + Calculo();
         }
     }
 }
