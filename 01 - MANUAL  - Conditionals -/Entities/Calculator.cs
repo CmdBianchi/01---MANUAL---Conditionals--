@@ -23,5 +23,6 @@ namespace Entities {
                 return "Negativo";
             }
         }
+
     }
 }
