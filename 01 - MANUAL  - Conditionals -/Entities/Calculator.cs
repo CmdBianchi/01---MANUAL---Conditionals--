@@ -8,7 +8,7 @@ namespace Entities {
             Number = number;
         }
         public bool Verif() {
-            if(Number > 0) {
+            if(Number % 2 == 0) {
                 return true;
             }
             else {
@@ -17,10 +17,10 @@ namespace Entities {
         }
         public override string ToString() {
             if (Verif() == true) {
-                return "Positivo";
+                return "Par";
             }
             else {
-                return "Negativo";
+                return "Impar";
             }
         }
 
