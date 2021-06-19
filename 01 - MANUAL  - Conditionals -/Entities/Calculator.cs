@@ -3,28 +3,22 @@ using System.Collections.Generic;
 using System.Text;
 namespace Entities {
     class Calculator {
-        public int NumberX { get; set; }
-        public int NumberY { get; set; }
-        public Calculator(int numberX, int numberY) {
-            NumberX = numberX;
-            NumberY = numberY;
+        public int HourInitial { get; set; }
+        public int HourFinal { get; set; }
+        public Calculator(int hourInitial, int hourFinal) {
+            HourInitial = hourInitial;
+            HourFinal = hourFinal;
         }
-        public bool Verif() {
-            if(NumberX % NumberY == 0 || NumberY % NumberX == 0) {
-                return true;
+        public int Calculo() {
+            if (HourInitial < HourFinal) {
+                return HourFinal - HourInitial;
             }
-            else {
-                return false;
+            else{
+                return 24 - HourInitial + HourFinal;
             }
         }
         public override string ToString() {
-            if (Verif() == true) {
-                return "É Multiplo";
-            }
-            else {
-                return "Não é Multiplo";
-            }
+            return "Duração total do jogo: " + Calculo();
         }
-
     }
 }
