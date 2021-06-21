@@ -3,29 +3,32 @@ using System.Collections.Generic;
 using System.Text;
 namespace Entities {
     class Calculator {
-        public double Coordinate { get; set; }
-        public Calculator(double coordinate) {
-            Coordinate = coordinate;
+        public double CoordinateX { get; set; }
+        public Calculator(double coordinateX) {
+            CoordinateX = coordinateX;
         }
-        public string Calculo() {
-            if (Coordinate >= 0 && Coordinate < 25 ) {
-                return "Intervalo (0,25)";
+        public double Calculo() {
+            if (CoordinateX < 2000.00) {
+                return 0;
             }
-            else if (Coordinate >= 25 && Coordinate < 50) {
-                return "Intervalo (25,50)";
+            else if (CoordinateX >= 2000.00 && CoordinateX < 3000.00) {
+                return (CoordinateX - 2000.00)*0.08;
             }
-            else if (Coordinate >= 50 && Coordinate < 75) {
-                return "Intervalo (50,75)";
+            else if (CoordinateX >= 3000.00 && CoordinateX < 4500.00) {
+                return (80) + ((CoordinateX - 3000.00) * 0.18);
             }
-            else if (Coordinate >= 75 && Coordinate < 100) {
-                return "Intervalo (75,100)";
+            else {
+                return (80) + (270) + ((CoordinateX - 4500.00) * 0.28);
             }
-            else{
-                return "Fora de intervalo";
-            }
+       
         }
         public override string ToString() {
-            return "Intervalo do número: " + Calculo();
+            if (Calculo() == 0) {
+                return "ISENTO";
+            }
+            else {
+                return "R$ " + Calculo().ToString("F2");
+            }
         }
     }
 }
